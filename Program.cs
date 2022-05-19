@@ -6,7 +6,9 @@ namespace Algorithms_GB
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.Title = "GB_Algorithms_by_Stepanov_A_V";
+
+            Menu.HomeworkMenu();
         }
     }
 }
