@@ -73,5 +73,21 @@ namespace Algorithms_GB
             else
                 Console.WriteLine($"Number {number} is not prime");
         }
+
+        internal static void Lesson2()
+        {
+            DLinkedList<int> DLList = new DLinkedList<int>();
+
+            DLList.AddNode(10);
+            DLList.AddNode(25);
+            DLList.AddNode(15);
+
+            foreach (var item in DLList)
+            {
+                Console.WriteLine(item);
+            }
+
+        }
+
     }
 }
