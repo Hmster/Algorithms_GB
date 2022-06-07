@@ -13,6 +13,10 @@ namespace Algorithms_GB
         DLNode<T> head;
         DLNode<T> tail;
 
+        /// <summary>
+        /// Add item after tail
+        /// </summary>
+        /// <param name="value"></param>
         public void AddNode(T value)
         {
             var newNode = new DLNode<T>(value);
@@ -28,6 +32,11 @@ namespace Algorithms_GB
             count++;
         }
 
+        /// <summary>
+        /// Add item after given
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="value"></param>
         public void AddNodeAfter(DLNode<T> node, T value)
         {
             var newNode = new DLNode<T>(value);
@@ -38,6 +47,11 @@ namespace Algorithms_GB
             nextNode.PrevNode = newNode;
         }
 
+        /// <summary>
+        /// Find node by value
+        /// </summary>
+        /// <param name="searchValue"></param>
+        /// <returns></returns>
         public DLNode<T> FindNode(T searchValue)
         {
             var currentNode = head;
@@ -50,9 +64,66 @@ namespace Algorithms_GB
             return null; 
         }
 
+        /// <summary>
+        /// Remove node by index
+        /// </summary>
+        /// <param name="itemIndex"></param>
+        public void RemoveNode(int itemIndex)
+        {
+            int currentIndex = 0;
+            var currentNode = head;
+            while (currentNode != null)
+            {
+                if (currentIndex == itemIndex - 1)
+                {
+                    RemoveNode(currentNode);
+                }
+                currentNode = currentNode.NextNode;
+                currentIndex++;
+            }
+        }
+
+        /// <summary>
+        /// Remove node
+        /// </summary>
+        /// <param name="node"></param>
+        public void RemoveNode(DLNode<T> node)
+        {
+
+            var nextNode = node.NextNode;
+            var prevNode = node.PrevNode;
+            if (node.PrevNode == null)
+                head = nextNode;
+            else if (node.NextNode == null)
+                tail = prevNode;
+            else
+            {
+                prevNode.NextNode = nextNode;
+                nextNode.PrevNode = prevNode;
+            }
+        }
+
+        /// <summary>
+        /// Get number of nodes
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public int GetCount()
         {
-            throw new NotImplementedException();
+            int currentIndex = 0;
+            var currentNode = head;
+            while (currentNode != null)
+            {
+                currentNode = currentNode.NextNode;
+                currentIndex++;
+            }
+            return currentIndex;
+        }
+
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable)this).GetEnumerator();
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -63,21 +134,6 @@ namespace Algorithms_GB
                 yield return current.Value;
                 current = current.NextNode;
             }
-        }
-
-        public void RemoveNode(int index)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveNode(DLNode<T> node)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return ((IEnumerable)this).GetEnumerator();
         }
     }
 }

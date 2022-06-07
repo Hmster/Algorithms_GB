@@ -78,25 +78,38 @@ namespace Algorithms_GB
         {
             DLinkedList<string> DLList = new DLinkedList<string>();
 
-            DLList.AddNode("10");
+            Console.WriteLine("Make 3 nodes with value \"Begin\", \"25\", \"Fifteen\", \"End\"");
+            DLList.AddNode("Begin");
             DLList.AddNode("25");
             DLList.AddNode("Fifteen");
-
+            DLList.AddNode("End");
             PrintList(DLList);
-            Console.WriteLine();
 
-            DLList.AddNodeAfter(DLList.FindNode("25"), "test");
-
+            Console.WriteLine("Find node with value \"25\" and put after it node with value \"Test\"");
+            DLList.AddNodeAfter(DLList.FindNode("25"), "Test");
             PrintList(DLList);
+
+            Console.WriteLine("Delete node with value \"Fifteen\"");
+            DLList.RemoveNode(DLList.FindNode("Fifteen"));
+            PrintList(DLList);
+
+            Console.WriteLine("Delete node with siquence number 1");
+            DLList.RemoveNode(1);
+            PrintList(DLList);
+
+
+
         }
 
         internal static void PrintList(DLinkedList<string> DList)
         {
+            Console.WriteLine("Node list:");
             foreach (var item in DList)
             {
-                Console.WriteLine(item);
+                Console.Write(item + " ");
             }
-
+            Console.WriteLine("\nNumber of nodes: " + DList.GetCount());
+            Console.WriteLine("\n");
         }
 
     }
