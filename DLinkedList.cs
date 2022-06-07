@@ -30,12 +30,24 @@ namespace Algorithms_GB
 
         public void AddNodeAfter(DLNode<T> node, T value)
         {
-            throw new NotImplementedException();
+            var newNode = new DLNode<T>(value);
+            var nextNode = node.NextNode;
+            node.NextNode = newNode;
+            newNode.NextNode = nextNode;
+            newNode.PrevNode = node;
+            nextNode.PrevNode = newNode;
         }
 
         public DLNode<T> FindNode(T searchValue)
         {
-            throw new NotImplementedException();
+            var currentNode = head;
+            while (currentNode != null)
+            {
+                if (currentNode.Value.Equals(searchValue))
+                    return currentNode;
+                currentNode = currentNode.NextNode;
+            }
+            return null; 
         }
 
         public int GetCount()

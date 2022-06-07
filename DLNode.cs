@@ -10,6 +10,10 @@ namespace Algorithms_GB
     {
         public DLNode(T value)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
             Value = value;
         }
         /// <summary>

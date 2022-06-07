@@ -76,13 +76,23 @@ namespace Algorithms_GB
 
         internal static void Lesson2()
         {
-            DLinkedList<int> DLList = new DLinkedList<int>();
+            DLinkedList<string> DLList = new DLinkedList<string>();
 
-            DLList.AddNode(10);
-            DLList.AddNode(25);
-            DLList.AddNode(15);
+            DLList.AddNode("10");
+            DLList.AddNode("25");
+            DLList.AddNode("Fifteen");
 
-            foreach (var item in DLList)
+            PrintList(DLList);
+            Console.WriteLine();
+
+            DLList.AddNodeAfter(DLList.FindNode("25"), "test");
+
+            PrintList(DLList);
+        }
+
+        internal static void PrintList(DLinkedList<string> DList)
+        {
+            foreach (var item in DList)
             {
                 Console.WriteLine(item);
             }
