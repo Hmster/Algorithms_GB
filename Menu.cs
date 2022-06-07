@@ -13,7 +13,7 @@ namespace Algorithms_GB
         /// </summary>
         internal static void HomeworkMenu() //TODO Try to make it with LIST!!!
         {
-            string[] menuItems = new string[] { "Lesson1_1", "Lesson1_2", "Lesson1_3", "Выход" };
+            string[] menuItems = new string[] { "Lesson1_1", "Lesson1_2", "Lesson1_3", "Lesson2", "Выход" };
 
             int row = Console.CursorTop;
             int col = Console.CursorLeft;
@@ -52,6 +52,10 @@ namespace Algorithms_GB
                                 break;
 
                             case 3:
+                                InputOutput.Lesson2();
+                                break;
+
+                            case 4:
                                 {
                                     Console.WriteLine("Exit program");
                                     Environment.Exit(0);
